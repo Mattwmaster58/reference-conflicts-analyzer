@@ -1,4 +1,4 @@
-﻿
+
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using ReferenceConflictAnalyser.VSExtension.UI.Utils;
@@ -23,11 +23,7 @@ namespace ReferenceConflictAnalyser.VSExtension.UI
             SelectAssemblyCommand = new GenericCommand<SelectAssemblyWindowViewModel, object>(this, SelectAssembly, (vm, p) => true);
             SelectConfigCommand = new GenericCommand<SelectAssemblyWindowViewModel, object>(this, SelectConfig, CanSelectConfig);
             AnalyzeConfigCommand = new GenericCommand<SelectAssemblyWindowViewModel, object>(this, Analyze, CanAnalyze);
-
             IgnoreSystemAssemblies = true;
-
-            Warning = "*The extension relies on the built-in DGML editor. In case you see a raw XML instead of a diagram run Visual Studio Installer, then: Modify -> Individual Components -> Code Tools -> Install DGML editor.";
-
             _window = window;
         }
 
@@ -51,12 +47,6 @@ namespace ReferenceConflictAnalyser.VSExtension.UI
         {
             get { return _ignoreSystemAssemblies; }
             set { SetProperty(ref _ignoreSystemAssemblies, value, "IgnoreSystemAssemblies"); }
-        }
-
-        public string Warning
-        {
-            get { return _warning; }
-            set { SetProperty(ref _warning, value, "Warning"); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -145,11 +135,6 @@ namespace ReferenceConflictAnalyser.VSExtension.UI
         {
             return !string.IsNullOrWhiteSpace(AssemblyPath);
         }
-
-  
-
-
-
         #endregion
     }
 }
