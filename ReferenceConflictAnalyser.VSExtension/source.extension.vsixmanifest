@@ -26,5 +26,6 @@
     </Assets>
     <Prerequisites>
         <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.GraphDocument" Version="[1.0,)" DisplayName="DGML editor" />
     </Prerequisites>
 </PackageManifest>
